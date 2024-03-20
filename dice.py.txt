@@ -1,0 +1,15 @@
+def dice_probability(target_sum):
+    if target_sum < 2 or target_sum > 12:
+        return 0
+    num_ways_to_get_sum = 0
+    for die1 in range(1, 7):
+        for die2 in range(1, 7):
+            if die1 + die2 == target_sum:
+                num_ways_to_get_sum += 1
+    total_possible_outcomes = 6 * 6  # Total outcomes when rolling two dice
+    probability = num_ways_to_get_sum / total_possible_outcomes
+    return probability
+
+target_sum = 7
+probability = dice_probability(target_sum)
+print(f"The probability of getting a sum of {target_sum} when rolling two dice is: {probability:.2f}")
